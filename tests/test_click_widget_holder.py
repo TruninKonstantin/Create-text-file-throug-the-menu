@@ -9,17 +9,17 @@ class UnittestWidgetHolder_Checking_widgetList_onClick(unittest.TestCase):
     def setUp(self):
         self.master = Tk()
         self.widgetHolder = WidgetHolder(self.master)
-        self.widgetHolder.get_widget_list()[1][1].insert(0, "Label 01")
-        self.widgetHolder.get_widget_list()[1][2].insert(0, "Label 02")
+        self.widgetHolder.get_widget_list()[1][1].insert(0, "01.01")
+        self.widgetHolder.get_widget_list()[1][2].insert(0, "01.02")
 
     def test_wiget_holder_content_row1_column0(self):
         self.assertEqual(self.widgetHolder.get_widget_list()[1][0].cget("text"), "1")
 
     def test_wiget_holder_content_row1_column1(self):
-        self.assertEqual(self.widgetHolder.get_widget_list()[1][1].get(), "Label 01")
+        self.assertEqual(self.widgetHolder.get_widget_list()[1][1].get(), "01.01")
 
     def test_wiget_holder_content_row1_column2(self):
-        self.assertEqual(self.widgetHolder.get_widget_list()[1][2].get(), "Label 02")
+        self.assertEqual(self.widgetHolder.get_widget_list()[1][2].get(), "01.02")
 
     def test_click_button_row1_column3(self):
         self.widgetHolder.get_widget_list()[1][3].invoke()

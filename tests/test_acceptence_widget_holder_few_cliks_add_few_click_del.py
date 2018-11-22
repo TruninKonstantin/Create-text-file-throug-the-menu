@@ -9,11 +9,11 @@ class UnittestWidgetHolder_Acceptence_few_click_add_few_clicks_del(unittest.Test
     def setUp(self):
         self.master = Tk()
         self.widgetHolder = WidgetHolder(self.master)
-        self.widgetHolder.get_widget_list()[1][1].insert(0, "Label 01_01")
-        self.widgetHolder.get_widget_list()[1][2].insert(0, "Label 01_02")
+        self.widgetHolder.get_widget_list()[1][1].insert(0, "01.01")
+        self.widgetHolder.get_widget_list()[1][2].insert(0, "01.02")
         self.widgetHolder.get_widget_list()[1][3].invoke()
-        self.widgetHolder.get_widget_list()[2][1].insert(0, "Label 02_01")
-        self.widgetHolder.get_widget_list()[2][2].insert(0, "Label 02_02")
+        self.widgetHolder.get_widget_list()[2][1].insert(0, "02.01")
+        self.widgetHolder.get_widget_list()[2][2].insert(0, "02.02")
         self.widgetHolder.get_widget_list()[1][3].invoke()
         self.widgetHolder.get_widget_list()[2][3].invoke()
         self.widgetHolder.get_widget_list()[4][3].invoke()
@@ -34,10 +34,10 @@ class UnittestWidgetHolder_Acceptence_few_click_add_few_clicks_del(unittest.Test
         self.assertEqual(self.widgetHolder.get_widget_list()[2][0].cget("text"), "2")
 
     def test_wiget_holder_content_row2_column1(self):
-        self.assertEqual(self.widgetHolder.get_widget_list()[2][1].get(), "Label 02_01")
+        self.assertEqual(self.widgetHolder.get_widget_list()[2][1].get(), "02.01")
 
     def test_wiget_holder_content_row2_column2(self):
-        self.assertEqual(self.widgetHolder.get_widget_list()[2][2].get(), "Label 02_02")
+        self.assertEqual(self.widgetHolder.get_widget_list()[2][2].get(), "02.02")
 
     def test_wiget_holder_content_row3_column0(self):
         self.assertEqual(self.widgetHolder.get_widget_list()[3][0].cget("text"), "3")
