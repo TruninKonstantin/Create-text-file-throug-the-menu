@@ -8,14 +8,14 @@ from app.logger import Logger
 from app.widget_holder import *
 
 logFileName = "_log.txt"
-pathToRootFolder = r"E:\python\projects\create_text_file_through_the_menu\app\trials"
+pathToRootFolder = r"D:\Code_Storage\python\projects\create_text_file_through_the_menu\app\trials"
 
 
 root = Tk()
 logger = Logger(pathToRootFolder)
 try:
 
-    widgetHolder = WidgetHolder(root)
+    widgetHolder = WidgetHolder(root,pathToRootFolder)
 
     root.mainloop()
 

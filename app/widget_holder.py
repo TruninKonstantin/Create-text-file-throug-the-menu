@@ -1,3 +1,5 @@
+import os
+
 import tkinter as tk
 import tkinter.ttk as ttk
 import subprocess
@@ -7,11 +9,12 @@ from visualisation.part_previewer import PartPreviewer
 class WidgetHolder(tk.Tk):
     # widgetList = []
 
-    def __init__(self, master):
+    def __init__(self, master,pathToRootFolder):
         self.master = master
         self.widgetList = []
         self.create_first_row()
         self.create_row_for_data_after_current(0)
+        self.pathToRootFolder = pathToRootFolder
 
     def create_first_row(self):
         label_00_01 = ttk.Label(self.master, text="Number")
@@ -23,7 +26,7 @@ class WidgetHolder(tk.Tk):
         label_00_06 = ttk.Button(self.master, text="Preview",
                                  command=lambda: self.preview_part())
         label_00_07 = ttk.Button(self.master, text="Print",
-                                 command=lambda: self.print_file_with_data())
+                                 command=lambda: self.print_file_with_data(self.pathToRootFolder))
         label_00_01.grid(row=0, column=0)
         label_00_02.grid(row=0, column=1)
         label_00_03.grid(row=0, column=2)
@@ -138,5 +141,16 @@ class WidgetHolder(tk.Tk):
         partPreviewer = PartPreviewer(listOfParts)
         partPreviewer.main()
 
-    def print_file_with_data(self):
-        pass
+    def print_file_with_data(self, pathToRootFolder):
+        fileName = "resultFile.txt"
+        join = os.path.join(pathToRootFolder, fileName)
+        print (join)
+        with open(join, "w") as text_file:
+
+            for i in range(1, len(self.widgetList)):
+                get = self.widgetList[i][1].get()
+                get_1 = self.widgetList[i][2].get()
+                string = str(get) + "    " + str(get_1) + "    " + "\n"
+                text_file.write(string)
+                print (str(get))
+
